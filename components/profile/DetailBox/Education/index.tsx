@@ -22,8 +22,8 @@ export const Education : React.FC<Props> = ({}) => {
   return (
     <div className='flex flex-col gap-4'>
       {
-        dummyEducation.map((education) => (
-          <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col lg:flex-row items-center gap-4'>
+        dummyEducation.map((education, i) => (
+          <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col lg:flex-row items-center gap-4' key={i}>
             <Image
               className='object-contain'
               src={education.image}

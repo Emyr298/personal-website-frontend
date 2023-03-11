@@ -20,7 +20,7 @@ export const UserBox : React.FC<Props> = ({}) => {
       <div className='flex flex-row justify-center'>
         {
           dummyContacts.map(function(contact, i) {
-            return <a href={contact.url} target='_blank' title={contact.name + ': ' + contact.accountName} key={i}>
+            return <a href={contact.url} target='_blank' rel='noreferrer' title={contact.name + ': ' + contact.accountName} key={i}>
               <Image
                 src={contact.imageUrl}
                 width='25'
