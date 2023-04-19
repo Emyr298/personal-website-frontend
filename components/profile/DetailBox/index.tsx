@@ -29,7 +29,6 @@ export const DetailBox : React.FC<Props> = ({}) => {
         {page === Page.Education ? <Education /> : null}
         {page === Page.Experience ? <Experience /> : null}
         {page === Page.Projects ? <Projects /> : null}
-        {page === Page.Certifications ? <Certifications /> : null}
       </div>
     </div>
   );
