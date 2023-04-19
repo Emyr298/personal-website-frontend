@@ -17,7 +17,7 @@ export const DetailBox : React.FC<Props> = ({}) => {
   const [page, setPage] = useState<Page>(Page.AboutMe);
   
   return (
-    <div className='w-full lg:w-max mt-[20px] lg:w-[50vw] lg:h-[80vh] flex flex-col items-center text-[1.1rem]'> {/* lg:h-[80vh] */}
+    <div className='detail-box mt-[20px] lg:w-[50vw] lg:h-[80vh] flex flex-col items-center text-[1.1rem]'> {/* lg:h-[80vh] */}
       <div className='w-fit p-2 bg-white drop-shadow-md rounded-xl flex flex-row flex-wrap gap-1 justify-center'>
         <button className={`h-[40px] py-1 px-2 rounded-xl ${page === Page.AboutMe ? 'bg-green-300' : ''}`} onClick={() => setPage(Page.AboutMe)}>About Me</button>
         <button className={`h-[40px] py-1 px-2 rounded-xl ${page === Page.Education ? 'bg-green-300' : ''}`} onClick={() => setPage(Page.Education)}>Education</button>
