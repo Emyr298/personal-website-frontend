@@ -20,10 +20,10 @@ export const Education : React.FC<Props> = ({}) => {
   ];
   
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='w-full flex flex-col gap-4'>
       {
         dummyEducation.map((education, i) => (
-          <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col lg:flex-row items-center gap-4' key={i}>
+          <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col md:flex-row items-center gap-4' key={i}>
             <Image
               className='object-contain'
               src={education.image}
@@ -31,7 +31,7 @@ export const Education : React.FC<Props> = ({}) => {
               height='100'
               alt={education.affiliation}
             />
-            <div className='flex-1 flex flex-col justify-center items-center lg:items-start'>
+            <div className='flex-1 flex flex-col justify-center items-center md:items-start'>
               <span className='text-xl font-bold'>{education.affiliation}</span>
               <span className='text-base'>{education.degree}</span>
               <span className='text-sm'>{education.time}</span>

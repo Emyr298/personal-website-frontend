@@ -53,7 +53,7 @@ export const Experience : React.FC<Props> = ({}) => {
     <div className='flex flex-col gap-4'>
       {
         dummyExperience.map((experience, i) => (
-          <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col lg:flex-row items-center gap-4' key={i}>
+          <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col md:flex-row items-center gap-4' key={i}>
             <Image
               className='object-contain'
               src={experience.image}
@@ -61,13 +61,13 @@ export const Experience : React.FC<Props> = ({}) => {
               height='100'
               alt={experience.affiliation}
             />
-            <div className='flex-1 flex flex-col justify-center items-center lg:items-start'>
+            <div className='flex-1 flex flex-col justify-center items-center md:items-start'>
               <span className='text-xl font-bold text-xl'>{experience.affiliation}</span>
               {
                 experience.positions.map((position, j) => (
                   <div className='w-full' key={j}>
                     <div className='h-[0.1rem] bg-gray-300 my-2'></div>
-                    <div className='flex flex-col lg:flex-row lg:items-center justify-between'>
+                    <div className='flex flex-col md:flex-row md:items-center justify-between'>
                       <div>
                         <span className='block text-base'>{position.name}</span>
                         <span className='block text-sm'>{position.time}</span>
