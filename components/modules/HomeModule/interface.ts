@@ -1,5 +1,6 @@
 export interface UserBoxData {
   name: string,
+  description: string,
   imageUrl: string,
   contacts: {
     name: string,

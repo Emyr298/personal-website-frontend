@@ -3,8 +3,7 @@ import { AboutMe } from './AboutMe';
 import { Education } from './Education';
 import { Experience } from './Experience';
 import { Projects } from './Projects';
-
-type Props = {};
+import { DetailBoxProps } from './interface';
 
 enum Page {
   AboutMe,
@@ -13,7 +12,9 @@ enum Page {
   Projects,
 };
 
-export const DetailBox : React.FC<Props> = ({}) => {
+export const DetailBox : React.FC<DetailBoxProps> = ({
+  description,
+}) => {
   const [page, setPage] = useState<Page>(Page.AboutMe);
   
   return (
@@ -25,7 +26,7 @@ export const DetailBox : React.FC<Props> = ({}) => {
         <button className={`h-[40px] py-1 px-2 rounded-xl ${page === Page.Projects ? 'bg-green-300' : ''}`} onClick={() => setPage(Page.Projects)}>Projects</button>
       </div>
       <div className='w-full lg:h-[calc(100%-75px)] mt-[20px] text-[1.15rem] lg:overflow-y-scroll lg:p-[10px]'>
-        {page === Page.AboutMe ? <AboutMe /> : null}
+        {page === Page.AboutMe ? <AboutMe description={description} /> : null}
         {page === Page.Education ? <Education /> : null}
         {page === Page.Experience ? <Experience /> : null}
         {page === Page.Projects ? <Projects /> : null}
