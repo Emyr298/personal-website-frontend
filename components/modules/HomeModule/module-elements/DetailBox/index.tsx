@@ -14,6 +14,9 @@ enum Page {
 
 export const DetailBox : React.FC<DetailBoxProps> = ({
   description,
+  educationHistoryList,
+  experienceList,
+  projectList,
 }) => {
   const [page, setPage] = useState<Page>(Page.AboutMe);
   
@@ -27,9 +30,9 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
       </div>
       <div className='w-full lg:h-[calc(100%-75px)] mt-[20px] text-[1.15rem] lg:overflow-y-scroll lg:p-[10px]'>
         {page === Page.AboutMe ? <AboutMe description={description} /> : null}
-        {page === Page.Education ? <Education /> : null}
-        {page === Page.Experience ? <Experience /> : null}
-        {page === Page.Projects ? <Projects /> : null}
+        {page === Page.Education ? <Education educationHistoryList={educationHistoryList} /> : null}
+        {page === Page.Experience ? <Experience experienceList={experienceList} /> : null}
+        {page === Page.Projects ? <Projects projects={projectList} /> : null}
       </div>
     </div>
   );

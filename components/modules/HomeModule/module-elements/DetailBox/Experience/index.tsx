@@ -1,58 +1,15 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { ExperienceProps } from './interface';
+import { getTime } from '../../../../../utils';
 
-type Props = {};
-
-export const Experience : React.FC<Props> = ({}) => {
-  const dummyExperience = [ // add new endpoint to get experiences as affiliation's child
-    {
-      affiliation: 'Faculty of Computer Science, University of Indonesia',
-      image: 'https://acakadul.files.wordpress.com/2013/08/makara-ui-fasilkom.png',
-      positions: [
-        {
-          name: 'Teaching Assistant of Programming Foundations 2',
-          time: 'July 2021 - July 2022',
-          skills: ['OOP', 'Java'],
-          description: 'Ehe',
-        },
-        {
-          name: 'Teaching Assistant of Discrete Mathematics 1',
-          time: 'July 2022 - Present',
-          skills: ['Discrete Mathematics'],
-          description: 'Te Nandayo',
-        }
-      ],
-    },
-    {
-      affiliation: 'RISTEK Fakultas Ilmu Komputer Universtas Indonesia',
-      image: 'https://media.licdn.com/dms/image/C560BAQGjdH4xEp3Q9w/company-logo_100_100/0/1615436063717?e=1683158400&v=beta&t=v9n06tBQGi4rj08LU6eebVltgw86kqx7puFbkOqgYCU',
-      positions: [
-        {
-          name: 'Member of Game Development SIG',
-          time: 'July 2022 - Present',
-          skills: ['Unity', 'C#', 'Game Design'],
-          description: 'Ehe',
-        },
-      ],
-    },
-    {
-      affiliation: 'RISTEK Fakultas Ilmu Komputer Universtas Indonesia',
-      image: 'https://media.licdn.com/dms/image/C560BAQGjdH4xEp3Q9w/company-logo_100_100/0/1615436063717?e=1683158400&v=beta&t=v9n06tBQGi4rj08LU6eebVltgw86kqx7puFbkOqgYCU',
-      positions: [
-        {
-          name: 'Member of Game Development SIG',
-          time: 'July 2022 - Present',
-          skills: ['Unity', 'C#', 'Game Design'],
-          description: 'Ehe',
-        },
-      ],
-    },
-  ];
-  
+export const Experience : React.FC<ExperienceProps> = ({
+  experienceList,
+}) => {  
   return (
     <div className='flex flex-col gap-4'>
       {
-        dummyExperience.map((experience, i) => (
+        experienceList.map((experience, i) => (
           <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col md:flex-row items-center gap-4' key={i}>
             <Image
               className='object-contain'
@@ -70,7 +27,7 @@ export const Experience : React.FC<Props> = ({}) => {
                     <div className='flex flex-col md:flex-row md:items-center justify-between'>
                       <div>
                         <span className='block text-base'>{position.name}</span>
-                        <span className='block text-sm'>{position.time}</span>
+                        <span className='block text-sm'>{getTime(position.startDate, position.endDate)}</span>
                       </div>
                       <div>
                         <div className='flex flex-row flex-wrap gap-2 mt-2 mb-1'>
