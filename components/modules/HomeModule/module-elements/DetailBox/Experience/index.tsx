@@ -7,7 +7,7 @@ export const Experience : React.FC<ExperienceProps> = ({
   experienceList,
 }) => {  
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 p-2'>
       {
         experienceList.map((experience, i) => (
           <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col md:flex-row items-center gap-4' key={i}>
