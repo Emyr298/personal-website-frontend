@@ -1,14 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { EducationProps } from './interface';
-import { EducationHistory } from '../../../interface';
 import { getTime } from '../../../../../utils';
 
 export const Education : React.FC<EducationProps> = ({
   educationHistoryList,
 }) => {  
   return (
-    <div className='w-full flex flex-col gap-4'>
+    <div className='w-full flex flex-col gap-4 p-2'>
       {
         educationHistoryList.map((educationHistory, i) => (
           <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col md:flex-row items-center gap-4' key={i}>
