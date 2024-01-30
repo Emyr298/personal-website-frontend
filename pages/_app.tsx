@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-import { Poppins } from '@next/font/google';
+import { Poppins } from 'next/font/google';
 import { NavBar } from '../components';
 import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
