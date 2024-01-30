@@ -7,7 +7,7 @@
 Front-end source code for my personal website.
 
 ## Environment Variables
-- `NEXT_PUBLIC_APP_API_URL`: URL of API
+- `NEXT_PUBLIC_APP_API_URL`: URL of API. Example: `http://localhost:8000`
 
 ## Contributors
 - [Emyr298](https://github.com/Emyr298)
