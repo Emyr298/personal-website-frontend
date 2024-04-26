@@ -8,7 +8,7 @@ export const AboutMe : React.FC<AboutMeProps> = ({
   skillCategories,
 }) => {
   return (
-    <div>
+    <div className='h-[calc(75vh-70px)] overflow-scroll'>
       <span className='font-bold text-xl mb-2 block'>Introduction</span>
       <p className='whitespace-pre-line'>
         {description}
