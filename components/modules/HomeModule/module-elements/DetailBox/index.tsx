@@ -20,6 +20,7 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
   educationHistoryList,
   experienceList,
   projectList,
+  skillCategories,
 }) => {
   const [page, setPage] = useState<Page>(Page.AboutMe);
   
@@ -36,14 +37,12 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
           autoPlay={false}
           centerMode={false}
           selectedItem={page}
-          // dynamicHeight={true}
           showArrows={false}
           showStatus={false}
           showThumbs={false}
           showIndicators={false}
-          // className={style}
         >
-          <AboutMe description={description} />
+          <AboutMe description={description} skillCategories={skillCategories} />
           <Education educationHistoryList={educationHistoryList} />
           <Experience experienceList={experienceList} />
           <Projects projects={projectList} />
