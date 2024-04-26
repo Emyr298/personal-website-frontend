@@ -9,7 +9,7 @@ export const Projects : React.FC<ProjectsProps> = ({
   projects,
 }) => {
   return (
-    <div className='flex flex-row flex-wrap gap-5'>
+    <div className='h-[calc(75vh-70px)] overflow-scroll flex flex-row flex-wrap gap-5 p-2'>
       {
         projects.map((project, i) => (
           <div className='flex-1 border-[1px] border-gray-200 rounded-xl bg-white drop-shadow flex flex-col min-w-[300px]' key={i}>
