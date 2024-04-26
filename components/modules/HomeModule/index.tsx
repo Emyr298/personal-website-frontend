@@ -16,30 +16,37 @@ export const HomeModule = () => {
       let generalResponse, contactsResponse, educationsResponse, experienceResponse, projectsResponse, skillCategoriesResponse;
       
       try {
-        generalResponse = await axios<GeneralDataResponse>({
+        const generalResponsePromise = axios<GeneralDataResponse>({
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/`,
         });
-        contactsResponse = await axios<ContactResponse[]>({
+        const contactsResponsePromise = axios<ContactResponse[]>({
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/contacts/`
         });
-        educationsResponse = await axios<EducationsResponse[]> ({
+        const educationsResponsePromise = axios<EducationsResponse[]> ({
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/educations/`
         });
-        experienceResponse = await axios<ExperienceResponse[]> ({
+        const experienceResponsePromise = axios<ExperienceResponse[]> ({
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/affiliations/experience/`
         });
-        projectsResponse = await axios<ProjectsResponse[]> ({
+        const projectsResponsePromise = axios<ProjectsResponse[]> ({
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/projects/`
         });
-        skillCategoriesResponse = await axios<SkillCategoryResponse[]> ({
+        const skillCategoriesResponsePromise = axios<SkillCategoryResponse[]> ({
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/skills/by-category/`
         });
+        
+        generalResponse = await generalResponsePromise;
+        contactsResponse = await contactsResponsePromise;
+        educationsResponse = await educationsResponsePromise;
+        experienceResponse = await experienceResponsePromise;
+        projectsResponse = await projectsResponsePromise;
+        skillCategoriesResponse = await skillCategoriesResponsePromise;
       } catch (error: any) {
         setLoading(false);
         toast('Error on fetching data', {
