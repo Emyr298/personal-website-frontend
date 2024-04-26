@@ -17,8 +17,8 @@ export const UserBox: React.FC<UserBoxProps> = ({
       <Image
         className='rounded-full'
         src={imageUrl}
-        width='300'
-        height='300'
+        width='500'
+        height='500'
         alt='Meervix'
       />
       <h1 className='my-2 text-2xl text-center font-bold'>{name}</h1>

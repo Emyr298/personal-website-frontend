@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { UserBox, DetailBox } from "./module-elements";
 import axios from "axios";
-import { ContactResponse, EducationsResponse, ExperienceResponse, GeneralDataResponse, ProjectsResponse, UserBoxData } from "./interface";
+import { ContactResponse, EducationsResponse, ExperienceResponse, GeneralDataResponse, ProjectsResponse, SkillCategoryResponse, UserBoxData } from "./interface";
 
 export const HomeModule = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -13,7 +13,7 @@ export const HomeModule = () => {
     setLoading(true);
     
     const fetchData = async () => {
-      let generalResponse, contactsResponse, educationsResponse, experienceResponse, projectsResponse;
+      let generalResponse, contactsResponse, educationsResponse, experienceResponse, projectsResponse, skillCategoriesResponse;
       
       try {
         generalResponse = await axios<GeneralDataResponse>({
@@ -36,6 +36,10 @@ export const HomeModule = () => {
           method: 'get',
           url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/projects/`
         });
+        skillCategoriesResponse = await axios<SkillCategoryResponse[]> ({
+          method: 'get',
+          url: `${process.env.NEXT_PUBLIC_APP_API_URL}/about/skills/by-category/`
+        });
       } catch (error: any) {
         setLoading(false);
         toast('Error on fetching data', {
@@ -51,8 +55,7 @@ export const HomeModule = () => {
       const educations = educationsResponse.data;
       const experience = experienceResponse.data;
       const projects = projectsResponse.data;
-      
-      console.log(experience)
+      const skillCategories = skillCategoriesResponse.data;
       
       const newData: UserBoxData = {
         name: generalData.name,
@@ -95,6 +98,13 @@ export const HomeModule = () => {
             image: curProject.image_url,
             description: curProject.description,
             urls: curProject.project_urls,
+            skills: curProject.skills,
+          };
+        }),
+        skillCategories: skillCategories.map((curCategory) => {
+          return {
+            name: curCategory.name,
+            skills: curCategory.skills,
           };
         }),
       };
@@ -134,6 +144,7 @@ export const HomeModule = () => {
           educationHistoryList={userData.educations}
           experienceList={userData.experience}
           projectList={userData.projects}
+          skillCategories={userData.skillCategories}
         />
       </div>
     );

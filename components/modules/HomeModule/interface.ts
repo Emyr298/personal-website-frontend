@@ -9,6 +9,7 @@ export interface UserBoxData {
   educations: EducationHistory[]
   experience: ExperienceHistory[]
   projects: ProjectHistory[]
+  skillCategories: SkillCategory[]
 }
 
 export interface GeneralDataResponse {
@@ -74,6 +75,7 @@ export interface ProjectsResponse {
     name: string
     url: string
   }[]
+  skills: string[]
 }
 
 export interface ProjectHistory {
@@ -83,5 +85,22 @@ export interface ProjectHistory {
   urls: {
     name: string
     url: string
+  }[]
+  skills: string[]
+}
+
+export interface SkillCategoryResponse {
+  name: string
+  skills: {
+    name: string
+    level: number
+  }[]
+}
+
+export interface SkillCategory {
+  name: string
+  skills: {
+    name: string
+    level: number
   }[]
 }
