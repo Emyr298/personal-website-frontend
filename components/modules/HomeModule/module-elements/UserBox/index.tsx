@@ -9,7 +9,7 @@ export const UserBox: React.FC<UserBoxProps> = ({
   contacts,
 }) => {
   const openCV = function() {
-    window.open('https://docs.google.com/document/d/1CKzIAVX2n9HgdDHPs17Kd0lQicJQx0M2nYWJzVcNR5c/edit?usp=sharing', '_blank');
+    window.open('https://docs.google.com/document/d/1WgMwiMb5TbzXs7bvEJCt2JYcfNAiN32CyrrLlpM5KSg', '_blank');
   };
   
   return (
