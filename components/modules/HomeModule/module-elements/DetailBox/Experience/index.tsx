@@ -12,7 +12,7 @@ export const Experience : React.FC<ExperienceProps> = ({
       {
         experienceList.map((experience, i) => (
           <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col items-center md:items-start md:flex-row' key={i}>
-            <div className='border-2 border-gray-300 rounded-full overflow-hidden mx-2'>
+            <div className='border-2 border-gray-300 rounded-full overflow-hidden w-[110px] h-[110px] flex items-center justify-center mx-2 p-3'>
               <Image
                 className='object-contain'
                 src={experience.image}
@@ -27,7 +27,7 @@ export const Experience : React.FC<ExperienceProps> = ({
                 experience.positions.map((position, j) => (
                   <div className='w-full' key={j}>
                     <div className='h-[0.1rem] bg-gray-300 my-2'></div>
-                    <div className='flex flex-col md:flex-row md:items-center justify-between mb-3'>
+                    <div className='flex flex-col md:flex-row md:items-center justify-between mb-3 gap-2'>
                       <div>
                         <span className='block text-base font-semibold'>{position.name}</span>
                         <span className='block text-sm'>{getTime(position.startDate, position.endDate)}</span>

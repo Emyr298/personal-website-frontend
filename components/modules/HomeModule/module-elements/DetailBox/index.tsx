@@ -5,8 +5,6 @@ import { Experience } from './Experience';
 import { Projects } from './Projects';
 import { DetailBoxProps } from './interface';
 import { Carousel } from 'react-responsive-carousel';
-// import style from 'react-responsive-carousel/lib/styles/carousel.min.css';
-// import style from '../../../../../styles/carousel.css';
 
 enum Page {
   AboutMe,

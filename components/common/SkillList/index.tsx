@@ -13,8 +13,8 @@ export const SkillList: React.FC<Props> = ({
     <div className='flex flex-row flex-wrap gap-2'>
       {
         skills.map((skill, k) => (
-          <div className='px-2 pb-[0.1rem] bg-green-300 rounded-xl' key={k}>
-            <span className='text-sm'>{skill}</span>
+          <div className='px-3 bg-green-300 rounded-xl' key={k}>
+            <span className='leading-[1.9rem] h-full text-[0.8rem] text-center'>{skill}</span>
           </div>
         ))
       }
