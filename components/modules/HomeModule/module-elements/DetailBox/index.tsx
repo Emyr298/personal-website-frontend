@@ -32,7 +32,7 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
         <button className={`h-[40px] py-1 px-2 rounded-xl transition ease-in-out duration-300 ${page === Page.Experience ? 'bg-green-300' : 'hover:bg-gray-200'}`} onClick={() => setPage(Page.Experience)}>Experience</button>
         <button className={`h-[40px] py-1 px-2 rounded-xl transition ease-in-out duration-300 ${page === Page.Projects ? 'bg-green-300' : 'hover:bg-gray-200'}`} onClick={() => setPage(Page.Projects)}>Projects</button>
       </div>
-      <div className='w-full lg:h-[calc(100%-75px)] mt-[20px] text-[1.15rem] lg:overflow-y-scroll lg:p-[10px]'>
+      <div className='w-full lg:h-[calc(100%-75px)] mt-[20px] text-[1.15rem] lg:p-[10px]'>
         <Carousel
           autoPlay={false}
           centerMode={false}
@@ -41,6 +41,7 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
           showStatus={false}
           showThumbs={false}
           showIndicators={false}
+          swipeable={false}
         >
           <AboutMe description={description} skillCategories={skillCategories} />
           <Education educationHistoryList={educationHistoryList} />

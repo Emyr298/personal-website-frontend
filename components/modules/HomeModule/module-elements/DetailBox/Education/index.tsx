@@ -7,7 +7,7 @@ export const Education : React.FC<EducationProps> = ({
   educationHistoryList,
 }) => {  
   return (
-    <div className='w-full h-[calc(75vh-70px)] overflow-scroll flex flex-col gap-4 p-2'>
+    <div className='w-full h-[calc(75vh-70px)] overflow-y-auto flex flex-col gap-4 p-2'>
       {
         educationHistoryList.map((educationHistory, i) => (
           <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col md:flex-row items-center gap-4' key={i}>

@@ -8,11 +8,15 @@ import { SkillList } from '../../../../../common';
 export const Projects : React.FC<ProjectsProps> = ({
   projects,
 }) => {
+  projects = projects.concat(projects);
+  projects = projects.concat(projects);
+  projects.pop();
+  
   return (
-    <div className='h-[calc(75vh-70px)] overflow-scroll flex flex-row flex-wrap gap-5 p-2'>
+    <div className='h-[calc(75vh-70px)] overflow-y-auto gap-5 p-2 grid grid-cols-1 lg:grid-cols-2'>
       {
         projects.map((project, i) => (
-          <div className='flex-1 border-[1px] border-gray-200 rounded-xl bg-white drop-shadow flex flex-col min-w-[300px]' key={i}>
+          <div className='border-[1px] border-gray-200 rounded-xl bg-white drop-shadow flex flex-col' key={i}>
             <Image
               className='object-cover rounded-t-xl min-w-full w-full h-[200px]'
               src={project.image}

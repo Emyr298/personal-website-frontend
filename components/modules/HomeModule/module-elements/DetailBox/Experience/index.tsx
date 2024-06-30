@@ -8,7 +8,7 @@ export const Experience : React.FC<ExperienceProps> = ({
   experienceList,
 }) => {
   return (
-    <div className='h-[calc(75vh-70px)] overflow-scroll flex flex-col gap-4 p-2'>
+    <div className='h-[calc(75vh-70px)] overflow-y-auto flex flex-col gap-4 p-2'>
       {
         experienceList.map((experience, i) => (
           <div className='border-[1px] border-gray-200 p-3 rounded-xl bg-white drop-shadow flex flex-col items-center md:items-start md:flex-row' key={i}>
