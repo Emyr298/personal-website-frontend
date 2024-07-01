@@ -1,11 +1,14 @@
-import { EducationHistory, ExperienceHistory, ProjectHistory, SkillCategory } from "../../interface"
+import {
+  EducationHistory,
+  ExperienceHistory,
+  ProjectHistory,
+  SkillCategory,
+} from '../../interface';
 
 export interface DetailBoxProps {
-  description: string
-  educationHistoryList: EducationHistory[]
-  experienceList: ExperienceHistory[]
-  projectList: ProjectHistory[]
-  skillCategories: SkillCategory[]
+  description: string;
+  educationHistoryList: EducationHistory[];
+  experienceList: ExperienceHistory[];
+  projectList: ProjectHistory[];
+  skillCategories: SkillCategory[];
 }
-
-

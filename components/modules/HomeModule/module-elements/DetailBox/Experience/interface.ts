@@ -1,5 +1,5 @@
-import { ExperienceHistory } from "../../../interface";
+import { ExperienceHistory } from '../../../interface';
 
 export interface ExperienceProps {
-  experienceList: ExperienceHistory[]
+  experienceList: ExperienceHistory[];
 }

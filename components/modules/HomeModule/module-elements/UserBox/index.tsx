@@ -8,10 +8,13 @@ export const UserBox: React.FC<UserBoxProps> = ({
   imageUrl,
   contacts,
 }) => {
-  const openCV = function() {
-    window.open('https://docs.google.com/document/d/1WgMwiMb5TbzXs7bvEJCt2JYcfNAiN32CyrrLlpM5KSg', '_blank');
+  const openCV = function () {
+    window.open(
+      'https://docs.google.com/document/d/1WgMwiMb5TbzXs7bvEJCt2JYcfNAiN32CyrrLlpM5KSg',
+      '_blank'
+    );
   };
-  
+
   return (
     <div className='w-[300px]'>
       <Image
@@ -21,19 +24,25 @@ export const UserBox: React.FC<UserBoxProps> = ({
         height='500'
         alt='Meervix'
       />
-      <h1 className='my-2 text-2xl text-center font-bold'>{name}</h1>
+      <h1 className='my-2 text-center text-2xl font-bold'>{name}</h1>
       <div className='flex flex-row justify-center'>
-        {
-          contacts.map(function(contact, i) {
-            return <a href={contact.url} target='_blank' rel='noreferrer' title={contact.name} key={i}>
+        {contacts.map(function (contact, i) {
+          return (
+            <a
+              href={contact.url}
+              target='_blank'
+              rel='noreferrer'
+              title={contact.name}
+              key={i}
+            >
               {getIcon(contact.name)}
             </a>
-          })
-        }
+          );
+        })}
       </div>
-      <div className='my-4 w-full flex items-center justify-center'>
+      <div className='my-4 flex w-full items-center justify-center'>
         <button
-          className='h-[40px] py-1 px-2 rounded-xl drop-shadow-md bg-green-300 hover:bg-green-400 transition ease-in-out duration-300'
+          className='h-[40px] rounded-xl bg-green-300 px-2 py-1 drop-shadow-md transition duration-300 ease-in-out hover:bg-green-400'
           onClick={openCV}
         >
           Open My Latest CV

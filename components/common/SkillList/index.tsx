@@ -1,23 +1,25 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 
 type Props = {
-  skills: string[]
+  skills: string[];
+  right?: boolean;
 };
 
-export const SkillList: React.FC<Props> = ({
-  skills,
-}) => {
+export const SkillList: React.FC<Props> = ({ skills, right = false }) => {
+  const containerCss = {
+    left: 'flex flex-row flex-wrap gap-2 justify-start',
+    right: 'flex flex-row flex-wrap gap-2 justify-end',
+  };
+
   return (
-    <div className='flex flex-row flex-wrap gap-2'>
-      {
-        skills.map((skill, k) => (
-          <div className='px-2 pb-[0.1rem] bg-green-300 rounded-xl' key={k}>
-            <span className='text-sm'>{skill}</span>
-          </div>
-        ))
-      }
+    <div className={right ? containerCss.right : containerCss.left}>
+      {skills.map((skill, k) => (
+        <div className='rounded-xl bg-green-300 px-3' key={k}>
+          <span className='h-full text-center text-[0.8rem] leading-[1.9rem]'>
+            {skill}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };
