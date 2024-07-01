@@ -60,7 +60,7 @@ export const HomeModule = () => {
         experienceResponse = await experienceResponsePromise;
         projectsResponse = await projectsResponsePromise;
         skillCategoriesResponse = await skillCategoriesResponsePromise;
-      } catch (error: any) {
+      } catch (error) {
         setLoading(false);
         toast('Error on fetching data', {
           closeButton: false,

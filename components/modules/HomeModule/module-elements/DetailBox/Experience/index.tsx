@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { ExperienceProps } from './interface';
 import { getTime } from '../../../../../utils';
