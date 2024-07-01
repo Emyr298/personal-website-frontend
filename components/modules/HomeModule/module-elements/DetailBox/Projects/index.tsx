@@ -6,10 +6,6 @@ import { ProjectsProps } from './interface';
 import { SkillList } from '../../../../../common';
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  projects = projects.concat(projects);
-  projects = projects.concat(projects);
-  projects.pop();
-
   return (
     <div className='grid h-[calc(75vh-70px)] grid-cols-1 gap-5 overflow-y-auto p-2 lg:grid-cols-2'>
       {projects.map((project, i) => (
