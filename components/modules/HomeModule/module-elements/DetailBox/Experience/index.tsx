@@ -35,7 +35,7 @@ export const Experience: React.FC<ExperienceProps> = ({ experienceList }) => {
                       {getTime(position.startDate, position.endDate)}
                     </span>
                   </div>
-                  <SkillList skills={position.skills} />
+                  <SkillList skills={position.skills} right={true} />
                 </div>
                 {!!position.description && (
                   <span className='mb-3 block whitespace-pre-line text-sm'>
