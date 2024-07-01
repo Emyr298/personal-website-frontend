@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 const Article: NextPage = () => {
   const router = useRouter();
   const articleId = router.query.articleId?.toString();
-  return <ArticleModule articleId={articleId} />
+  return <ArticleModule articleId={articleId} />;
 };
 
 export default Article;

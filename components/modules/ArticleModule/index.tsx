@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Card } from '../../common';
 import { MdOpenInNew } from 'react-icons/md';
-import { AiOutlineRead } from 'react-icons/ai';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -9,12 +8,10 @@ import { getReadableDate } from '../../utils';
 import { Article } from './interface';
 
 interface Props {
-  articleId?: string
+  articleId?: string;
 }
 
-export const ArticleModule: React.FC<Props> = ({
-  articleId,
-}) => {
+export const ArticleModule: React.FC<Props> = ({ articleId }) => {
   const [article, setArticle] = useState<Article | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +32,7 @@ export const ArticleModule: React.FC<Props> = ({
     };
 
     fetchArticle();
-  }, []);
+  }, [articleId]);
 
   if (error) {
     return (
@@ -72,16 +69,13 @@ export const ArticleModule: React.FC<Props> = ({
       <div className='flex w-full flex-col items-center gap-4 p-4 lg:w-[50%] lg:p-0'>
         <h1 className='text-2xl font-bold'>Meervix&apos;s Blog</h1>
         <div className='flex w-full flex-col gap-4'>
-          <Card
-            key={article.id}
-            className='flex flex-col gap-1 gap-3 p-6'
-          >
+          <Card key={article.id} className='flex flex-col gap-1 gap-3 p-6'>
             <div className='flex flex-1 flex-col gap-2'>
               <h2 className='w-fit text-2xl font-bold text-green-600'>
                 {article.name}
               </h2>
               <hr />
-              <div className='w-full flex flex-col lg:flex-row gap-2 justify-between'>
+              <div className='flex w-full flex-col justify-between gap-2 lg:flex-row'>
                 <div>
                   <span className='block text-sm text-gray-600'>
                     Created At: {getReadableDate(article.created_at)}
@@ -100,7 +94,10 @@ export const ArticleModule: React.FC<Props> = ({
                 </div>
               </div>
               <hr />
-              <div className='medium-article text-sm flex flex-col gap-4' dangerouslySetInnerHTML={{ __html: article.content }}></div>
+              <div
+                className='medium-article flex flex-col gap-4 text-sm'
+                dangerouslySetInnerHTML={{ __html: article.content }}
+              ></div>
             </div>
           </Card>
         </div>
