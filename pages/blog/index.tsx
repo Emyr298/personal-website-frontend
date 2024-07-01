@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { BlogModule } from '../components/modules';
+import { BlogModule } from '../../components/modules';
 
 const Blog: NextPage = () => <BlogModule />;
 

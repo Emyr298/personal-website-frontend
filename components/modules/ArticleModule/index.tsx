@@ -2,33 +2,39 @@ import Link from 'next/link';
 import { Card } from '../../common';
 import { MdOpenInNew } from 'react-icons/md';
 import { AiOutlineRead } from 'react-icons/ai';
-import { useEffect, useState } from 'react';
-import { ArticleIndex } from './interface';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { getReadableDate } from '../../utils';
+import { Article } from './interface';
 
-export const BlogModule = () => {
-  const [articles, setArticles] = useState<ArticleIndex[] | null>(null);
+interface Props {
+  articleId?: string
+}
+
+export const ArticleModule: React.FC<Props> = ({
+  articleId,
+}) => {
+  const [article, setArticle] = useState<Article | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const fetchArticle = async () => {
       try {
-        const articles = (
-          await axios<ArticleIndex[]>({
+        const article = (
+          await axios<Article>({
             method: 'get',
-            url: `${process.env.NEXT_PUBLIC_APP_API_URL}/blog/`,
+            url: `${process.env.NEXT_PUBLIC_APP_API_URL}/blog/${articleId}`,
           })
         ).data;
-        setArticles(articles);
+        setArticle(article);
       } catch (error) {
-        toast.error("Couldn't fetch articles");
-        setError("Couldn't fetch articles");
+        toast.error("Couldn't fetch article");
+        setError("Couldn't fetch article");
       }
     };
 
-    fetchArticles();
+    fetchArticle();
   }, []);
 
   if (error) {
@@ -39,7 +45,7 @@ export const BlogModule = () => {
     );
   }
 
-  if (articles === null) {
+  if (article === null || !articleId) {
     return (
       <div className='flex h-screen w-screen items-center justify-center'>
         <svg
@@ -61,52 +67,42 @@ export const BlogModule = () => {
     );
   }
 
-  if (articles.length == 0) {
-    return (
-      <div className='flex h-screen w-screen items-center justify-center'>
-        <span>No Articles Found</span>
-      </div>
-    );
-  }
-
   return (
     <div className='max-w-screen mb-4 mt-[84px] flex min-h-[calc(100vh-52px)] justify-center'>
       <div className='flex w-full flex-col items-center gap-4 p-4 lg:w-[50%] lg:p-0'>
         <h1 className='text-2xl font-bold'>Meervix&apos;s Blog</h1>
         <div className='flex w-full flex-col gap-4'>
-          {articles.map((article) => {
-            return (
-              <Card
-                key={article.id}
-                className='flex flex-col items-stretch gap-1 gap-3 p-4 lg:items-end'
-              >
-                <div className='flex flex-1 flex-col gap-1'>
-                  <h2 className='w-fit text-lg font-bold text-green-600'>
-                    {article.name}
-                  </h2>
-
-                  <span className='block text-[0.85rem] text-gray-600'>
+          <Card
+            key={article.id}
+            className='flex flex-col gap-1 gap-3 p-6'
+          >
+            <div className='flex flex-1 flex-col gap-2'>
+              <h2 className='w-fit text-2xl font-bold text-green-600'>
+                {article.name}
+              </h2>
+              <hr />
+              <div className='w-full flex flex-col lg:flex-row gap-2 justify-between'>
+                <div>
+                  <span className='block text-sm text-gray-600'>
                     Created At: {getReadableDate(article.created_at)}
                   </span>
-                  <p className='text-sm'>{article.sneak_peek}</p>
+                  <span className='block text-sm text-gray-600'>
+                    Updated At: {getReadableDate(article.updated_at)}
+                  </span>
                 </div>
-                <div className='flex justify-end gap-2'>
+                <div>
                   <Link href={article.url} target='_blank'>
                     <button className='flex h-fit w-fit items-center gap-2 rounded-xl bg-green-300 px-3 py-2 text-sm transition duration-300 ease-in-out hover:bg-green-400'>
                       Medium
                       <MdOpenInNew className='text-lg' />
                     </button>
                   </Link>
-                  <Link href={`/blog/${article.id}`}>
-                    <button className='flex h-fit w-fit items-center gap-2 rounded-xl bg-green-300 px-3 py-2 text-sm transition duration-300 ease-in-out hover:bg-green-400'>
-                      Read
-                      <AiOutlineRead className='text-lg' />
-                    </button>
-                  </Link>
                 </div>
-              </Card>
-            );
-          })}
+              </div>
+              <hr />
+              <div className='medium-article text-sm flex flex-col gap-4' dangerouslySetInnerHTML={{ __html: article.content }}></div>
+            </div>
+          </Card>
         </div>
       </div>
     </div>
