@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const NavBar = () => {
   return (
     <nav className='text-[1.1rem]'>
-      <div className='absolute top-0 z-50 flex h-[52px] w-full flex-row items-center justify-between bg-white px-5 py-3 drop-shadow-md'>
+      <div className='fixed top-0 z-50 flex h-[52px] w-full flex-row items-center justify-between bg-white px-5 py-3 drop-shadow-md'>
         <Link href='/' className='text-xl font-bold text-black'>
           Meervix
         </Link>

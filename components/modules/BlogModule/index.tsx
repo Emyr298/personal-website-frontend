@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { ArticleIndex } from './interface';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { getReadableDate } from '../../utils';
 
 export const BlogModule = () => {
   const [articles, setArticles] = useState<ArticleIndex[] | null>(null);
@@ -69,24 +70,25 @@ export const BlogModule = () => {
   }
 
   return (
-    <div className='max-w-screen mt-[84px] flex min-h-[calc(100vh-52px)] justify-center'>
+    <div className='max-w-screen mb-4 mt-[84px] flex min-h-[calc(100vh-52px)] justify-center'>
       <div className='flex w-full flex-col items-center gap-4 p-4 lg:w-[50%] lg:p-0'>
         <h1 className='text-2xl font-bold'>Meervix&apos;s Blog</h1>
-        <div className='flex w-full flex-col gap-3'>
+        <div className='flex w-full flex-col gap-4'>
           {articles.map((article) => {
             return (
               <Card
                 key={article.id}
-                className='flex flex-col items-stretch gap-1 gap-3 lg:flex-row lg:items-end'
+                className='flex flex-col items-stretch gap-1 gap-3 p-4 lg:items-end'
               >
                 <div className='flex flex-1 flex-col gap-1'>
                   <h2 className='w-fit text-lg font-bold text-green-600'>
                     {article.name}
                   </h2>
-                  <p>{article.sneak_peek}</p>
-                  <span className='block text-sm text-gray-600'>
-                    Created At: {article.created_at}
+
+                  <span className='block text-[0.85rem] text-gray-600'>
+                    Created At: {getReadableDate(article.created_at)}
                   </span>
+                  <p className='text-sm'>{article.sneak_peek}</p>
                 </div>
                 <div className='flex justify-end gap-2'>
                   <Link href={article.url}>
