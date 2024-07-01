@@ -8,15 +8,11 @@ export const NavBar = () => {
         <Link href='/' className='text-xl font-bold text-black'>
           Meervix
         </Link>
-        <div className='flex flex-row gap-4 items-center'>
-          <Link
-            href='/'
-          >
+        <div className='flex flex-row items-center gap-4'>
+          <Link href='/'>
             <span className='text-gray-600 hover:text-black'>Profile</span>
           </Link>
-          <Link
-            href='/blog'
-          >
+          <Link href='/blog'>
             <span className='text-gray-600 hover:text-black'>Blog</span>
           </Link>
         </div>
