@@ -2,15 +2,15 @@ import React from 'react';
 
 type Props = {
   skills: string[];
-  right?: boolean
+  right?: boolean;
 };
 
-export const SkillList: React.FC<Props> = ({ skills , right = false }) => {
+export const SkillList: React.FC<Props> = ({ skills, right = false }) => {
   const containerCss = {
     left: 'flex flex-row flex-wrap gap-2 justify-start',
     right: 'flex flex-row flex-wrap gap-2 justify-end',
-  }
-  
+  };
+
   return (
     <div className={right ? containerCss.right : containerCss.left}>
       {skills.map((skill, k) => (
