@@ -11,9 +11,9 @@ enum Page {
   Education,
   Experience,
   Projects,
-};
+}
 
-export const DetailBox : React.FC<DetailBoxProps> = ({
+export const DetailBox: React.FC<DetailBoxProps> = ({
   description,
   educationHistoryList,
   experienceList,
@@ -21,16 +21,38 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
   skillCategories,
 }) => {
   const [page, setPage] = useState<Page>(Page.AboutMe);
-  
+
   return (
-    <div className='detail-box mt-[20px] lg:w-[50vw] lg:h-[80vh] flex flex-col items-center text-[1.1rem]'> {/* lg:h-[80vh] */}
-      <div className='w-fit p-2 bg-white drop-shadow-md rounded-xl flex flex-row flex-wrap gap-1 justify-center'>
-        <button className={`h-[40px] py-1 px-2 rounded-xl transition ease-in-out duration-300 ${page === Page.AboutMe ? 'bg-green-300' : 'hover:bg-gray-200'}`} onClick={() => setPage(Page.AboutMe)}>About Me</button>
-        <button className={`h-[40px] py-1 px-2 rounded-xl transition ease-in-out duration-300 ${page === Page.Education ? 'bg-green-300' : 'hover:bg-gray-200'}`} onClick={() => setPage(Page.Education)}>Education</button>
-        <button className={`h-[40px] py-1 px-2 rounded-xl transition ease-in-out duration-300 ${page === Page.Experience ? 'bg-green-300' : 'hover:bg-gray-200'}`} onClick={() => setPage(Page.Experience)}>Experience</button>
-        <button className={`h-[40px] py-1 px-2 rounded-xl transition ease-in-out duration-300 ${page === Page.Projects ? 'bg-green-300' : 'hover:bg-gray-200'}`} onClick={() => setPage(Page.Projects)}>Projects</button>
+    <div className='detail-box mt-[20px] flex flex-col items-center text-[1.1rem] lg:h-[80vh] lg:w-[50vw]'>
+      {' '}
+      {/* lg:h-[80vh] */}
+      <div className='flex w-fit flex-row flex-wrap justify-center gap-1 rounded-xl bg-white p-2 drop-shadow-md'>
+        <button
+          className={`h-[40px] rounded-xl px-2 py-1 transition duration-300 ease-in-out ${page === Page.AboutMe ? 'bg-green-300' : 'hover:bg-gray-200'}`}
+          onClick={() => setPage(Page.AboutMe)}
+        >
+          About Me
+        </button>
+        <button
+          className={`h-[40px] rounded-xl px-2 py-1 transition duration-300 ease-in-out ${page === Page.Education ? 'bg-green-300' : 'hover:bg-gray-200'}`}
+          onClick={() => setPage(Page.Education)}
+        >
+          Education
+        </button>
+        <button
+          className={`h-[40px] rounded-xl px-2 py-1 transition duration-300 ease-in-out ${page === Page.Experience ? 'bg-green-300' : 'hover:bg-gray-200'}`}
+          onClick={() => setPage(Page.Experience)}
+        >
+          Experience
+        </button>
+        <button
+          className={`h-[40px] rounded-xl px-2 py-1 transition duration-300 ease-in-out ${page === Page.Projects ? 'bg-green-300' : 'hover:bg-gray-200'}`}
+          onClick={() => setPage(Page.Projects)}
+        >
+          Projects
+        </button>
       </div>
-      <div className='w-full lg:h-[calc(100%-75px)] mt-[20px] text-[1.15rem] lg:p-[10px]'>
+      <div className='mt-[20px] w-full text-[1.15rem] lg:h-[calc(100%-75px)] lg:p-[10px]'>
         <Carousel
           autoPlay={false}
           centerMode={false}
@@ -41,7 +63,10 @@ export const DetailBox : React.FC<DetailBoxProps> = ({
           showIndicators={false}
           swipeable={false}
         >
-          <AboutMe description={description} skillCategories={skillCategories} />
+          <AboutMe
+            description={description}
+            skillCategories={skillCategories}
+          />
           <Education educationHistoryList={educationHistoryList} />
           <Experience experienceList={experienceList} />
           <Projects projects={projectList} />

@@ -1,5 +1,5 @@
-import { EducationHistory } from "../../../interface";
+import { EducationHistory } from '../../../interface';
 
 export interface EducationProps {
-  educationHistoryList: EducationHistory[]
+  educationHistoryList: EducationHistory[];
 }

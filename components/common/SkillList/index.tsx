@@ -3,21 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
-  skills: string[]
+  skills: string[];
 };
 
-export const SkillList: React.FC<Props> = ({
-  skills,
-}) => {
+export const SkillList: React.FC<Props> = ({ skills }) => {
   return (
     <div className='flex flex-row flex-wrap gap-2'>
-      {
-        skills.map((skill, k) => (
-          <div className='px-3 bg-green-300 rounded-xl' key={k}>
-            <span className='leading-[1.9rem] h-full text-[0.8rem] text-center'>{skill}</span>
-          </div>
-        ))
-      }
+      {skills.map((skill, k) => (
+        <div className='rounded-xl bg-green-300 px-3' key={k}>
+          <span className='h-full text-center text-[0.8rem] leading-[1.9rem]'>
+            {skill}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };
