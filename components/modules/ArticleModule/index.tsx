@@ -17,6 +17,8 @@ export const ArticleModule: React.FC<Props> = ({ articleId }) => {
 
   useEffect(() => {
     const fetchArticle = async () => {
+      if (!articleId) return;
+
       try {
         const article = (
           await axios<Article>({
@@ -25,6 +27,7 @@ export const ArticleModule: React.FC<Props> = ({ articleId }) => {
           })
         ).data;
         setArticle(article);
+        setError(null);
       } catch (error) {
         toast.error("Couldn't fetch article");
         setError("Couldn't fetch article");
